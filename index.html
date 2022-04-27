@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>2048 Game - Play 2048 Game Online</title>
+        <link rel="stylesheet" href="/css/fonts/clear-sans.css?v=2020021701" as="style">
+        <link rel="preload" href="/css/fonts/ClearSans-Bold-webfont.woff" as="font" crossorigin="">
+        <link rel="preload" href="/css/fonts/ClearSans-Regular-webfont.woff" as="font" crossorigin="">
+        <link href="/css/main.css?v=2021080501" rel="stylesheet" type="text/css">
+        <link href="/css/flag-icon.css" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <link rel="apple-touch-icon" href="/meta/apple-touch-icon.png">
+        <style>
+          .score-container:after {
+            content: "Score";
+          }
+        
+          .best-container:after {
+            content: "Best";
+          }
+        </style>
+        <meta property="og:image" content="/meta/apple-touch-icon.png">
+        <meta name="description" content="👾 2048. This is the classic version of 2048 game. Join the numbers and get to the 2048 tile. Play 2048 online for free here.">
+        <meta property="og:description" content="👾 Join the numbers and get to the 2048 tile! Careful: this game is extremely addictive!">
+        <meta name="twitter:description" content="Join the numbers and get to the 2048 tile! Careful: this game is extremely addictive!">
+        <meta name="twitter:card" content="app">
+        <meta name="twitter:site" content="2048game.com">
+        <meta name="twitter:title" content="2048">
+        <meta name="twitter:url" content="https://2048game.com">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+        <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script>
+        <script src="https://partner.googleadservices.com/gampad/cookie.js?domain=2048game.com&amp;callback=_gfp_s_&amp;client=ca-pub-9554815946678227&amp;cookie=ID%3Dea817a07d2c0c97f-2248600a70d200e6%3AT%3D1651039821%3ART%3D1651039821%3AS%3DALNI_MbMw1c3_ITdGxRrtWz0FHZLE_vZTA"></script><script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202204200101/show_ads_impl_fy2019.js" id="google_shimpl"></script>
+        <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" type="text/javascript"></script>
+        <script type="text/javascript">
+          // New Atlantis
+          (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-9554815946678227",
+            enable_page_level_ads: true
+          });
+        </script>
+        <meta http-equiv="origin-trial" content="AxujKG9INjsZ8/gUq8+dTruNvk7RjZQ1oFhhgQbcTJKDnZfbzSTE81wvC2Hzaf3TW4avA76LTZEMdiedF1vIbA4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="Azuce85ORtSnWe1MZDTv68qpaW3iHyfL9YbLRy0cwcCZwVnePnOmkUJlG8HGikmOwhZU22dElCcfrfX2HhrBPAkAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A16nvcdeoOAqrJcmjLRpl1I6f3McDD8EfofAYTt/P/H4/AWwB99nxiPp6kA0fXoiZav908Z8etuL16laFPUdfQsAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxBHdr0J44vFBQtZUqX9sjiqf5yWZ/OcHRcRMN3H9TH+t90V/j3ENW6C8+igBZFXMJ7G3Pr8Dd13632aLng42wgAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A88BWHFjcawUfKU3lIejLoryXoyjooBXLgWmGh+hNcqMK44cugvsI5YZbNarYvi3roc1fYbHA1AVbhAtuHZflgEAAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjUyNzc0NDAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AzoawhTRDevLR66Y6MROu167EDncFPBvcKOaQispTo9ouEt5LvcBjnRFqiAByRT+2cDHG1Yj4dXwpLeIhc98/gIAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A6+nc62kbJgC46ypOwRsNW6RkDn2x7tgRh0wp7jb3DtFF7oEhu1hhm4rdZHZ6zXvnKZLlYcBlQUImC4d3kKihAcAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/9La288e7MDEU2ifusFnMg1C2Ij6uoa/Z/ylwJIXSsWfK37oESIPbxbt4IU86OGqDEPnNVruUiMjfKo65H/CQwAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AxujKG9INjsZ8/gUq8+dTruNvk7RjZQ1oFhhgQbcTJKDnZfbzSTE81wvC2Hzaf3TW4avA76LTZEMdiedF1vIbA4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="Azuce85ORtSnWe1MZDTv68qpaW3iHyfL9YbLRy0cwcCZwVnePnOmkUJlG8HGikmOwhZU22dElCcfrfX2HhrBPAkAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A16nvcdeoOAqrJcmjLRpl1I6f3McDD8EfofAYTt/P/H4/AWwB99nxiPp6kA0fXoiZav908Z8etuL16laFPUdfQsAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxBHdr0J44vFBQtZUqX9sjiqf5yWZ/OcHRcRMN3H9TH+t90V/j3ENW6C8+igBZFXMJ7G3Pr8Dd13632aLng42wgAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A88BWHFjcawUfKU3lIejLoryXoyjooBXLgWmGh+hNcqMK44cugvsI5YZbNarYvi3roc1fYbHA1AVbhAtuHZflgEAAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjUyNzc0NDAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AzoawhTRDevLR66Y6MROu167EDncFPBvcKOaQispTo9ouEt5LvcBjnRFqiAByRT+2cDHG1Yj4dXwpLeIhc98/gIAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A6+nc62kbJgC46ypOwRsNW6RkDn2x7tgRh0wp7jb3DtFF7oEhu1hhm4rdZHZ6zXvnKZLlYcBlQUImC4d3kKihAcAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/9La288e7MDEU2ifusFnMg1C2Ij6uoa/Z/ylwJIXSsWfK37oESIPbxbt4IU86OGqDEPnNVruUiMjfKo65H/CQwAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AxujKG9INjsZ8/gUq8+dTruNvk7RjZQ1oFhhgQbcTJKDnZfbzSTE81wvC2Hzaf3TW4avA76LTZEMdiedF1vIbA4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="Azuce85ORtSnWe1MZDTv68qpaW3iHyfL9YbLRy0cwcCZwVnePnOmkUJlG8HGikmOwhZU22dElCcfrfX2HhrBPAkAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A16nvcdeoOAqrJcmjLRpl1I6f3McDD8EfofAYTt/P/H4/AWwB99nxiPp6kA0fXoiZav908Z8etuL16laFPUdfQsAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxBHdr0J44vFBQtZUqX9sjiqf5yWZ/OcHRcRMN3H9TH+t90V/j3ENW6C8+igBZFXMJ7G3Pr8Dd13632aLng42wgAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A88BWHFjcawUfKU3lIejLoryXoyjooBXLgWmGh+hNcqMK44cugvsI5YZbNarYvi3roc1fYbHA1AVbhAtuHZflgEAAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjUyNzc0NDAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AzoawhTRDevLR66Y6MROu167EDncFPBvcKOaQispTo9ouEt5LvcBjnRFqiAByRT+2cDHG1Yj4dXwpLeIhc98/gIAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A6+nc62kbJgC46ypOwRsNW6RkDn2x7tgRh0wp7jb3DtFF7oEhu1hhm4rdZHZ6zXvnKZLlYcBlQUImC4d3kKihAcAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/9La288e7MDEU2ifusFnMg1C2Ij6uoa/Z/ylwJIXSsWfK37oESIPbxbt4IU86OGqDEPnNVruUiMjfKo65H/CQwAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><link rel="preload" href="https://adservice.google.com.vn/adsid/integrator.js?domain=2048game.com" as="script"><script type="text/javascript" src="https://adservice.google.com.vn/adsid/integrator.js?domain=2048game.com"></script><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=2048game.com" as="script">
+        <script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=2048game.com"></script>
+    </head>
+    <body>
+        <div class="mobile-top"></div>
+        <div class="container">
+        <div class="heading">
+        <h1 class="title"><a href="/">2048</a></h1>
+        <div class="scores-container">
+        <div class="score-container">0</div>
+        <div class="best-container">4772</div>
+        </div>
+        </div>
+        <div class="game-intro">
+        <a class="restart-button">New Game</a>
+        <h2 class="subtitle">Play <strong>2048 Game</strong> Online</h2>
+        <div class="above-game">
+        <p>Join the numbers and get to the <strong>2048 tile!</strong></p>
+        </div>
+        </div>
+        <div class="game-container">
+        <div class="game-message">
+        <p></p>
+        <div class="lower">
+        <a class="keep-playing-button">Keep playing</a>
+        <a class="retry-button">Try again</a>
+        <div class="score-sharing">
+        </div>
+        </div>
+        </div>
+        <div class="grid-container">
+        <div class="grid-row">
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+        </div>
+        </div>
+        <div class="tile-container"><div class="tile tile-2 tile-position-2-3 tile-new"><div class="tile-inner">2</div></div><div class="tile tile-2 tile-position-4-1 tile-new"><div class="tile-inner">2</div></div></div>
+        </div>
+        </div>
+        <div style="margin: 1.5rem auto; max-width: 720px;">
+        <style>
+            .ads-below-game {
+              max-height: 100px;
+            }
+          </style>
+        
+         
+        </div>
+        <div class="container">
+        <div class="fb-line">
+        <p class="game-explanation">
+        <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>
+        </p>
+        <p class="text left">Share with friends</p>
+        
+        <div class="twitter-button-wrapper">
+        <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Check%20out%20one%20of%20the%20most%20addictive%20games%20of%20all%20time - 2048!" target="_blank" data-size="default">
+        Tweet</a>
+        </div>
+        <a target="_blank" class="facebook-share-button" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//2048game.com">Facebook</a>
+        <div class="clear"></div>
+        </div>
+        <div class="clearfix"></div>
+        <br>
+        <p>
+        - Do you still have free time after playing 2048?<br>
+        - If <strong>NO</strong>, <a href="http://hmpg.net/" rel="nofollow">click here</a> or play <a href="http://www.goodoldtetris.com/">Tetris Online</a><br>
+        - If <strong>YES</strong>, why don't you check the footer :)?<br>
+        </p>
+        <br>
+        <hr>
+        <h2 style="margin-bottom: 10px; text-align: center;">Learn more about <strong>2048 Game</strong></h2>
+        <div>
+        <ul class="unstyled tips-and-tricks">
+        <li><a href="/tips-and-tricks">Tips &amp; Tricks</a></li>
+        <li class="even"><a href="/videos">2048 Videos</a></li>
+        <li><a href="/quotes">2048 Quotes</a></li>
+        <li class="even"><a href="/variations">2048 Variations</a></li>
+        </ul>
+        <div class="clearfix"></div>
+        </div>
+        <br>
+        <p>
+        <strong>2048</strong> is an easy and fun puzzle game. Even if you don't love
+        numbers you will love this game. It is played on a 4x4 grid using the arrows
+        or W, A, S, D keys alternatively. Every time you press a key - all tiles slide.
+        Tiles with the same value that bump into one-another are merged.
+        Although there might be an optimal strategy to play, there is always some level of chance.
+        If you beat the game and would
+        like to master it, try to finish with a smaller score. That would mean
+        that you finished with less moves.
+        </p>
+        <p>
+        This game is mobile compatible and you can play it on any device - iPhone, iPad
+        or any other smartphone.
+        </p>
+        <p>
+        Common <a href="/questions-and-answers">questions and answers</a> about 2048.<br>
+        Learn all about <em>2048</em>'s history on
+        <a href="https://en.wikipedia.org/wiki/2048_(video_game)" target="_blank">wikipedia</a>.
+        <br>
+        Our <a href="/blog">2048 blog</a> and <a href="/news">news references</a>
+        </p>
+        <div class="clearfix"></div>
+        <hr>
+        <footer class="text-center">
+        <strong>2048</strong> ·
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" rel="nofollow" target="_blank">Surprise</a> ·
+        <a href="https://www.youtube.com/watch?v=A3ytTKZf344" rel="nofollow" target="_blank">Shark</a> ·
+        <a href="https://www.youtube.com/watch?v=MNyG-xu-7SQ" rel="nofollow" target="_blank">Wake Up</a> ·
+        <a href="https://www.youtube.com/watch?v=J---aiyznGQ" rel="nofollow" target="_blank">Cat</a> ·
+        <a href="/approved.html">Approved!</a>
+        </footer>
+        </div>
+        <div class="side-column side-column-left">
+        <a href="https://www.goodoldtetris.com" class="choose-language" target="_blank">👾 Free Tetris Online</a><br>
+        <a href="http://emojihomepage.com" class="choose-language" target="_blank">😍 Emoji Homepage</a><br>
+        
+        </div>
+        <div class="side-column side-column-right">
+        <a href="/language.html" class="choose-language">
+        <span class="flag-icon flag-icon-en"></span> Language
+        </a>
+        <div id="side-ad" class="side-ad">
+        <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" type="text/javascript"></script>
+        
+        <ins class="adsbygoogle" style="display:inline-block; width:160px; height:600px;" data-ad-client="ca-pub-9554815946678227" data-ad-format="vertical" data-ad-slot="6164486933" data-adsbygoogle-status="done"></ins>
+        <script type="text/javascript">
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        <div class="note">
+        <label>Sponsor links from above open in a new window.</label>
+        </div>
+        </div>
+        </div>
+        
+        <script src="/js/bind_polyfill.js" type="text/javascript"></script>
+        <script src="/js/classlist_polyfill.js" type="text/javascript"></script>
+        <script src="/js/animframe_polyfill.js" type="text/javascript"></script>
+        <script src="/js/keyboard_input_manager.js" type="text/javascript"></script>
+        <script src="/js/html_actuator_local.js" type="text/javascript"></script>
+        <script src="/js/grid.js" type="text/javascript"></script>
+        <script src="/js/tile.js" type="text/javascript"></script>
+        <script src="/js/local_storage_manager.js" type="text/javascript"></script>
+        <script src="/js/game_manager.js" type="text/javascript"></script>
+        <script src="/js/application.js" type="text/javascript"></script>
+        
+        <script type="text/javascript">
+        
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-10949806-11']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        
+        
+        <ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><ins id="aswift_0_expand" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;"><ins id="aswift_0_anchor" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" trusttoken="{&quot;type&quot;:&quot;send-redemption-record&quot;,&quot;issuers&quot;:[&quot;https://pagead2.googlesyndication.com&quot;],&quot;refreshPolicy&quot;:&quot;none&quot;,&quot;signRequestData&quot;:&quot;include&quot;,&quot;includeTimestampHeader&quot;:true,&quot;additionalSignedHeaders&quot;:[&quot;sec-time&quot;,&quot;Sec-Redemption-Record&quot;],&quot;additionalSigningData&quot;:&quot;eyJ1cmwiOiJodHRwczovLzIwNDhnYW1lLmNvbS8_cmVmPWdvb2dsZS1zZWFyY2gtY2xhc3NpYyZnY2xpZD1FQUlhSVFvYkNoTUl5TW4zemNxejl3SVZqNGZDQ2gxeXR3TE1FQUFZQVNBQUVnSmI2X0RfQndFIn0.&quot;}" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-9554815946678227&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1629936134&amp;plat=9%3A32768%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1048576%2C32%3A32&amp;format=0x0&amp;url=https%3A%2F%2F2048game.com%2F%3Fref%3Dgoogle-search-classic%26gclid%3DEAIaIQobChMIyMn3zcqz9wIVj4fCCh1ytwLMEAAYASAAEgJb6_D_BwE&amp;ea=0&amp;pra=5&amp;wgl=1&amp;uach=WyJtYWNPUyIsIjEwLjE1LjciLCJ4ODYiLCIiLCIxMDAuMC40ODk2LjEyNyIsW10sbnVsbCxudWxsLCI2NCIsW1siIE5vdCBBO0JyYW5kIiwiOTkuMC4wLjAiXSxbIkNocm9taXVtIiwiMTAwLjAuNDg5Ni4xMjciXSxbIkdvb2dsZSBDaHJvbWUiLCIxMDAuMC40ODk2LjEyNyJdXSxmYWxzZV0.&amp;tt_state=W3siaXNzdWVyT3JpZ2luIjoiaHR0cHM6Ly9wYWdlYWQyLmdvb2dsZXN5bmRpY2F0aW9uLmNvbSIsInN0YXRlIjoyMCwiaGFzUmVkZW1wdGlvblJlY29yZCI6dHJ1ZX1d&amp;dt=1651041162681&amp;bpp=1&amp;bdt=60&amp;idt=49&amp;shv=r20220425&amp;mjsv=m202204200101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3Dea817a07d2c0c97f-2248600a70d200e6%3AT%3D1651039821%3ART%3D1651039821%3AS%3DALNI_MbMw1c3_ITdGxRrtWz0FHZLE_vZTA&amp;nras=1&amp;correlator=895965556297&amp;frm=20&amp;pv=2&amp;ga_vid=456928412.1651039819&amp;ga_sid=1651039819&amp;ga_hid=1512515306&amp;ga_fc=1&amp;u_tz=420&amp;u_his=3&amp;u_h=1120&amp;u_w=1792&amp;u_ah=1022&amp;u_aw=1792&amp;u_cd=30&amp;u_sd=2&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=804&amp;bih=938&amp;scr_x=0&amp;scr_y=0&amp;eid=44759876%2C44759927%2C44759842%2C31065342%2C31067067%2C31065659%2C21067496&amp;oid=2&amp;pvsid=4373134050008622&amp;pem=783&amp;tmod=1965166443&amp;uas=0&amp;nvt=1&amp;ref=https%3A%2F%2F2048game.com%2F%3Fref%3Dgoogle-search-classic%26gclid%3DEAIaIQobChMIyMn3zcqz9wIVj4fCCh1ytwLMEAAYASAAEgJb6_D_BwE&amp;eae=2&amp;fc=1920&amp;brdim=0%2C23%2C0%2C23%2C1792%2C23%2C1792%2C1017%2C804%2C938&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=82" data-google-container-id="a!1" data-load-complete="true"></iframe></ins></ins></ins><iframe src="https://www.google.com/recaptcha/api2/aframe" width="0" height="0" style="display: none;"></iframe>
+    </body>
+    <iframe id="google_esf" name="google_esf" src="https://googleads.g.doubleclick.net/pagead/html/r20220425/r20190131/zrt_lookup.html" style="display: none;"></iframe>
+</html>
